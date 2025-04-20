@@ -1,0 +1,11 @@
+streamlit==1.30.0
+torch==2.2.1
+diffusers==0.26.3
+transformers==4.38.2
+accelerate==0.27.2
+safetensors==0.4.2
+scipy==1.12.0
+pillow==10.2.0
+streamlit
+speechrecognition
+pyaudio    # For microphone input (optional)
