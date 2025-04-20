@@ -54,7 +54,7 @@ class SuspectSketchGenerator:
             generator = None
             
         # Enhance the prompt for police sketch generation
-        prompt = f"police forensic photo generator, front view portrait of {description}, realistic detailed color photo, neutral background, clear facial features. Generate only one face."
+        prompt = f"police forensic photo generator, front view portrait of {description}, realistic detailed color photo, neutral background, clear facial features. Generate only one face at the center of the generated image."
         
         # Negative prompt to avoid unrealistic elements
         negative_prompt = "unrealistic, cartoon, anime, 3d, painting, deformed, blurry, low quality, distorted features, extra fingers, extra limbs, disfigured"
