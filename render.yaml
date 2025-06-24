@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: ai-suspect-sketch-generator
+    runtime: docker
+    plan: free  # Use 'starter' for better performance ($7/month)
+    region: oregon
+    branch: main
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PORT
+        value: 8501
+      - key: PYTHONPATH
+        value: /app
+    buildFilter:
+      paths:
+      - app.py
+      - generator.py
+      - requirements.txt
+      - Dockerfile
+      - style.css
+    healthCheckPath: /_stcore/health 

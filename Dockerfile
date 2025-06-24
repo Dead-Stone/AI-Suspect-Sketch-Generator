@@ -2,11 +2,16 @@ FROM python:3.9-slim
 
 WORKDIR /app
 
-# Install system dependencies for audio processing
+# Install system dependencies for audio processing and build tools
 RUN apt-get update && apt-get install -y \
     portaudio19-dev \
     python3-pyaudio \
     ffmpeg \
+    gcc \
+    g++ \
+    make \
+    libasound2-dev \
+    curl \
     && rm -rf /var/lib/apt/lists/*
 
 # Copy requirements first to leverage Docker cache
