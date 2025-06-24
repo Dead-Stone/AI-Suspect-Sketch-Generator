@@ -26,11 +26,12 @@ COPY . .
 # Create directory for generated sketches
 RUN mkdir -p generated_sketches
 
-# Expose port
+# Expose port 
 EXPOSE 8501
 
-# Health check
-HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health
+# Create startup script
+RUN echo '#!/bin/bash\nstreamlit run app.py --server.port=${PORT:-8501} --server.address=0.0.0.0 --server.headless=true --server.fileWatcherType=none' > /app/start.sh
+RUN chmod +x /app/start.sh
 
 # Run the application
-CMD ["streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"] 
+CMD ["/app/start.sh"] 
